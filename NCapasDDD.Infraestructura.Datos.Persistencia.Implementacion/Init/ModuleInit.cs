@@ -10,8 +10,8 @@ namespace NCapasDDD.Infraestructura.Datos.Persistencia.Implementacion
     {
         public void Initialize(IRegisterModules register)
         {
-            register.RegisterTyper<IContextoUnidadDeTrabajo, ContextoPrincipal>();
-            register.RegisterTyper<ICasaRepositorio, CasaRepositorio>();
+            register.RegisterType<IContextoUnidadDeTrabajo, ContextoPrincipal>();
+            register.RegisterType<ICasaRepositorio, CasaRepositorio>();
 
         }
     }

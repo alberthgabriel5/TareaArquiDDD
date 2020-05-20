@@ -15,7 +15,7 @@ namespace NCapasDDD.Infraestructura.Datos.Transversal.Utilitarios.IoC
         {
             _contenedor = contenedor;
         }
-        public void RegisterTyper<TFrom, TTo>(bool withIterception = false) where TTo : TFrom
+        public void RegisterType<TFrom, TTo>(bool withIterception = false) where TTo : TFrom
         {
             if (!withIterception)
             {

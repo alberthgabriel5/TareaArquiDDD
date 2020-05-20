@@ -45,10 +45,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -102,6 +126,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Mvc5, Version=1.2.3.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Mvc5.1.2.3\lib\net45\Unity.Mvc5.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -120,6 +147,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -179,6 +208,40 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NCapasDDD.Aplicacion.Contratos\NCapasDDD.Aplicacion.Contratos.csproj">
+      <Project>{6a32245b-3dba-424f-84d3-3873102fbb28}</Project>
+      <Name>NCapasDDD.Aplicacion.Contratos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NCapasDDD.Aplicacion.Core\NCapasDDD.Aplicacion.Core.csproj">
+      <Project>{b89bbe26-e7da-4292-9513-9ef925f992e9}</Project>
+      <Name>NCapasDDD.Aplicacion.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NCapasDDD.Aplicacion.Implementacion\NCapasDDD.Aplicacion.Implementacion.csproj">
+      <Project>{af0cac11-df44-45ed-b035-dddac72aba5d}</Project>
+      <Name>NCapasDDD.Aplicacion.Implementacion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NCapasDDD.Dominio.Core\NCapasDDD.Dominio.Core.csproj">
+      <Project>{d50f112c-cafa-486c-8cb5-ccc51ef8fc73}</Project>
+      <Name>NCapasDDD.Dominio.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NCapasDDD.Infraestructura.Datos.Persistencia.Core\NCapasDDD.Infraestructura.Datos.Persistencia.Core.csproj">
+      <Project>{1efa915a-dd18-44e5-bdbe-2b3538d216f1}</Project>
+      <Name>NCapasDDD.Infraestructura.Datos.Persistencia.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NCapasDDD.Infraestructura.Datos.Persistencia.Implementacion\NCapasDDD.Infraestructura.Datos.Persistencia.Implementacion.csproj">
+      <Project>{1b226a07-04e0-48ea-9933-91df154bc51d}</Project>
+      <Name>NCapasDDD.Infraestructura.Datos.Persistencia.Implementacion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NCapasDDD.Infraestructura.Datos.Persistencia.Repositorios\NCapasDDD.Infraestructura.Datos.Persistencia.Repositorios.csproj">
+      <Project>{bb95f598-eec4-4c37-9d6a-d00d7bfce390}</Project>
+      <Name>NCapasDDD.Infraestructura.Datos.Persistencia.Repositorios</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NCapasDDD.Infraestructura.Datos.Transversal.Utilitarios.IoC\NCapasDDD.Infraestructura.Datos.Transversal.Utilitarios.IoC.csproj">
+      <Project>{944a7a60-e531-490c-a5e2-51e665efdc40}</Project>
+      <Name>NCapasDDD.Infraestructura.Datos.Transversal.Utilitarios.IoC</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

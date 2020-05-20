@@ -11,7 +11,7 @@ namespace NCapasDDD.Aplicacion.Implementacion
     {
         public void Initialize(IRegisterModules register)
         {
-              register.RegisterTyper<ICasaServicio, CasaServicio>();
+              register.RegisterType<ICasaServicio, CasaServicio>();
 
         }
     }
