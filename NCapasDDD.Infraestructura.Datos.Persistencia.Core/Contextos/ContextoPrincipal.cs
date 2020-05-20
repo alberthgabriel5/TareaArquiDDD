@@ -10,7 +10,7 @@ namespace NCapasDDD.Infraestructura.Datos.Persistencia.Core
 {
     public class ContextoPrincipal : DbContext, IContextoUnidadDeTrabajo
     {
-        public ContextoPrincipal() : base("DefaultConection") { }
+        public ContextoPrincipal() : base("TareaIngeneriaB21190Entities") { }
         //Atributo
         IDbSet<Casa> _casa;
         //Propiedad
